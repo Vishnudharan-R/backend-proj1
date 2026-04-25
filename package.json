@@ -1,0 +1,16 @@
+{
+  "name": "backend-proj1",
+  "version": "1.0.0",
+  "description": "Learning standard and professional backend setup",
+  "keywords": [
+    "backend",
+    "javascript"
+  ],
+  "license": "ISC",
+  "author": "Vishnudharan R",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
