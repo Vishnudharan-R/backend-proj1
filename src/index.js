@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import { DB_NAME } from "./constants.js";
 import connectDB from "./db/index.js";
+import { app } from "./app.js";
 
 dotenv.config({
     path: "./.env"
@@ -18,6 +19,19 @@ dotenv.config({
 // This is because the special characters can cause issues with the connection string. 
 // For example, if the password is "my@password", we need to encode it as "my%40password" in the connection string.
 connectDB()
+.then( () => {
+    app.listen(process.env.PORT || 8000, () => {
+        console.log(`server is running on port ${process.env.PORT}`)
+    })
+    app.on("error", (error) => {
+        console.error("error: ", error)
+        throw error
+    })
+
+})
+.catch( (error) => {
+    console.error("Mongo db connection error: ", error)
+})
 
 
 
